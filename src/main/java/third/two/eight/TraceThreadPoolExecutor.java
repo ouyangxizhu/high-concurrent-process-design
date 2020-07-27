@@ -7,8 +7,11 @@ import java.util.concurrent.Future;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
-public class TraceThreadPoolExcutor extends ThreadPoolExecutor {
-    public TraceThreadPoolExcutor(int corePoolSize, int maximumPoolSize, long keepAliveTime, TimeUnit unit, BlockingQueue<Runnable> workQueue) {
+/**
+ * @author czz
+ */
+public class TraceThreadPoolExecutor extends ThreadPoolExecutor {
+    public TraceThreadPoolExecutor(int corePoolSize, int maximumPoolSize, long keepAliveTime, TimeUnit unit, BlockingQueue<Runnable> workQueue) {
         super(corePoolSize, maximumPoolSize, keepAliveTime, unit, workQueue);
     }
 
@@ -30,9 +33,9 @@ public class TraceThreadPoolExcutor extends ThreadPoolExecutor {
 //                java.lang.Exception: client stack trace
 //                at third.two.eight.TraceThreadPoolExcutor.clientTrace(TraceThreadPoolExcutor.java:37)
 //                at third.two.eight.TraceThreadPoolExcutor.execute(TraceThreadPoolExcutor.java:17)
-//                at third.two.eight.DivTask.main(DivTask.java:49)
+//                at java.main.third.two.eight.DivTask.main(DivTask.java:49)
 //                Exception in thread "pool-1-thread-1" java.lang.ArithmeticException: / by zero
-//                at third.two.eight.DivTask.run(DivTask.java:16)
+//                at java.main.third.two.eight.DivTask.run(DivTask.java:16)
 //                at third.two.eight.TraceThreadPoolExcutor.lambda$wrap$0(TraceThreadPoolExcutor.java:28)
 //                at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
 //                at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
@@ -40,13 +43,13 @@ public class TraceThreadPoolExcutor extends ThreadPoolExecutor {
                 clientTrace.printStackTrace();
 
 //                java.lang.ArithmeticException: / by zero
-//                at third.two.eight.DivTask.run(DivTask.java:16)
+//                at java.main.third.two.eight.DivTask.run(DivTask.java:16)
 //                at third.two.eight.TraceThreadPoolExcutor.lambda$wrap$0(TraceThreadPoolExcutor.java:28)
 //                at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
 //                at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
 //                at java.lang.Thread.run(Thread.java:748)
 //                Exception in thread "pool-1-thread-1" java.lang.ArithmeticException: / by zero
-//                at third.two.eight.DivTask.run(DivTask.java:16)
+//                at java.main.third.two.eight.DivTask.run(DivTask.java:16)
 //                at third.two.eight.TraceThreadPoolExcutor.lambda$wrap$0(TraceThreadPoolExcutor.java:28)
 //                at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
 //                at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
